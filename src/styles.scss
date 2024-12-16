@@ -29,6 +29,10 @@ a , a:hover{
 {
     box-shadow: var(--shadow);
     border: solid 1px var(--main-color);
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    
 }
 .product .btn 
 {
@@ -53,6 +57,11 @@ a , a:hover{
 .bg-main
 {
     background-color: var(--main-color) !important;
+}
+.navbar-active{
+    background-color: var(--main-color) !important;
+    color: #fff !important;
+    border-radius: 8px;
 }
 .bg-main-light 
 {
