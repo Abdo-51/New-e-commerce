@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   getProducts =() =>{
     this._ProductsService.getProducts().subscribe({
       next: (res) => {
-         console.log(res.data);
+        //  console.log(res.data);
          this.allproducts = res.data;
       },
     error: (error) => {
@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
       }
     });
   };
+  
 }
 
 
