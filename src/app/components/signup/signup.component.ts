@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from "../../shared/ui/button/button.component";
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [ButtonComponent , ReactiveFormsModule],
+  imports: [ButtonComponent , ReactiveFormsModule , NgClass],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss'
 })

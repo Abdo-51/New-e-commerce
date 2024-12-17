@@ -48,19 +48,14 @@
         }
         <!-- repassword -->
     <input formControlName="rePassword" type="password" class="form-control my-3" placeholder="Type your repassword..">
-        @if (registerForm.get('password')?.errors && registerForm.get('password')?.touched) {
+        @if (registerForm.getError('mismatch') && registerForm.get('rePassword')?.touched) {
             <div class="alert alert-danger">
                 <ul class="m-0">
-                    @if (registerForm.get('password')?.getError('required')) {
-                        <li>Confirm Password is required.</li>
-                    }
-                    @if (registerForm.get('password')?.getError('pattern')) {
                         <li>Custom field should match the pattern</li>
-                    }
                 </ul>
             </div>  
         }
-    <app-button>Register</app-button>
+    <app-button>Register</app-button> 
 </form>
 </div>
 
