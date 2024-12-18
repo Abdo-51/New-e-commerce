@@ -1,1 +1,72 @@
-<p>signin works!</p>
+<div class="container w-50 my-5">
+    <h1>Login :</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <!-- Email -->
+      <input
+        formControlName="email"
+        type="email"
+        class="form-control my-3"
+        placeholder="Type your email.."
+        [ngClass]="{
+          'is-invalid': loginForm.get('email')?.errors && loginForm.get('email')?.touched,
+          'is-valid': loginForm.get('email')?.valid && loginForm.get('email')?.touched
+        }"
+      />
+      @if (loginForm.get('email')?.errors && loginForm.get('email')?.touched) {
+        <div class="alert alert-danger">
+          <ul class="m-0">
+            @if (loginForm.get('email')?.getError('required')) {
+              <li>Email is required.</li>
+            }
+            @if (loginForm.get('email')?.getError('email')) {
+              <li>Please enter a valid email address.</li>
+            }
+          </ul>
+        </div>
+      }
+  
+     <!-- Password -->
+     <div class="position-relative">
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          formControlName="password"
+          class="form-control my-3"
+          placeholder="Type your password.."
+        />
+        <i
+            class="toggle-password fas"
+            [ngClass]="showPassword ? 'fa-eye' : 'fa-eye-slash'"
+            (click)="toggleShowPassword('password')"
+        ></i>
+      </div>
+      @if (loginForm.get('password')?.errors && loginForm.get('password')?.touched) {
+        <div class="alert alert-danger">
+          <ul class="m-0">
+            @if (loginForm.get('password')?.getError('required')) {
+              <li>Password is required.</li>
+            }
+            @if (loginForm.get('password')?.getError('pattern')) {
+              <li>Password must meet the required pattern.</li>
+            }
+          </ul>
+        </div>
+      }
+  
+        <div class="text-danger my-3">
+            {{errorMessage}}
+        </div>
+      <!-- Submit Button -->
+       <div class="d-flex justify-content-end">
+        <app-button>
+            @if(!loading) {
+                Login 
+            }
+            @else {
+                <i class="fa-solid fa-spinner fa-spin"></i>
+            }
+        </app-button>
+        
+       </div>
+    </form>
+  </div>
+  
