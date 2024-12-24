@@ -55,7 +55,7 @@ export class SignupComponent {
       if (this.registerForm.valid) {
         this._AuthService.signUp(this.registerForm.value).subscribe({
           next:(res)=>{
-            if (res.message == 'success') {   
+            if (res.message == 'success') { 
               this._router.navigate(['/signin']);
               this.loading = false;
               console.log(res);

@@ -41,6 +41,9 @@ export class SigninComponent {
     this._AuthService.signIn(this.loginForm.value).subscribe({
       next:(res)=>{
         if (res.message == 'success') {   
+          localStorage.setItem('token', res.token)  
+          this._AuthService.saveUserData();
+          console.log(res.token);
           this._router.navigate(['/home']);
           this.loading = false;
           console.log(res);
