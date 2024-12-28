@@ -56,7 +56,7 @@
             {{errorMessage}}
         </div>
       <!-- Submit Button -->
-       <div class="d-flex justify-content-end">
+       <div class="d-flex justify-content-between">
         <app-button>
             @if(!loading) {
                 Login 
@@ -65,8 +65,10 @@
                 <i class="fa-solid fa-spinner fa-spin"></i>
             }
         </app-button>
+
+      <a class="link-primary" routerLink="/forgetpassword">Forget Password ?</a>
         
        </div>
-    </form>
+    </form>    
   </div>
   

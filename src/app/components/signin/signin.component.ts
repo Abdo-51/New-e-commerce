@@ -2,13 +2,13 @@ import { NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from '../../shared/ui/button/button.component';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-signin',
   standalone: true,
-  imports: [ButtonComponent , ReactiveFormsModule , NgClass],
+  imports: [ButtonComponent , ReactiveFormsModule , NgClass , RouterLink],
   templateUrl: './signin.component.html',
   styleUrl: './signin.component.scss'
 })
@@ -37,13 +37,12 @@ export class SigninComponent {
 
   login(){
     this.loading = true;
-  if (this.loginForm.valid) {
+    if (this.loginForm.valid) {
     this._AuthService.signIn(this.loginForm.value).subscribe({
       next:(res)=>{
         if (res.message == 'success') {   
           localStorage.setItem('token', res.token)  
           this._AuthService.saveUserData();
-          console.log(res.token);
           this._router.navigate(['/home']);
           this.loading = false;
           console.log(res);

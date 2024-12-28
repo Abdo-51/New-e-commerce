@@ -1,0 +1,170 @@
+<section>
+    @if(steps == 1){
+        <div class="container w-50 my-5">
+            <h2>Forget Password :</h2>
+            <form [formGroup]="forgetpasswordForm" (ngSubmit)="forgetPassword()">
+              <!-- Email -->
+              <input
+                formControlName="email"
+                type="email"
+                class="form-control my-3"
+                placeholder="Type your email.."
+                [ngClass]="{
+                  'is-invalid': forgetpasswordForm.get('email')?.errors && forgetpasswordForm.get('email')?.touched,
+                  'is-valid': forgetpasswordForm.get('email')?.valid && forgetpasswordForm.get('email')?.touched
+                }"
+              />
+              @if (forgetpasswordForm.get('email')?.errors && forgetpasswordForm.get('email')?.touched) {
+                <div class="alert alert-danger">
+                  <ul class="m-0">
+                    @if (forgetpasswordForm.get('email')?.getError('required')) {
+                      <li>Email is required.</li>
+                    }
+                    @if (forgetpasswordForm.get('email')?.getError('email')) {
+                      <li>Please enter a valid email address.</li>
+                    }
+                  </ul>
+                </div>
+              }
+          
+                <div class="text-danger my-3">
+                    {{errorMessage}}
+                </div>
+              <!-- Submit Button -->
+               <div class="d-flex justify-content-end">
+                <app-button>
+                    @if(!loading) {
+                        Send                }
+                    @else {
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                    }
+                </app-button>
+                
+               </div>
+            </form>    
+        </div>
+    }@else if (steps == 2) {
+        <div class="container w-50 my-5">
+            <h2>Verify Reset Code  :</h2>
+            <form [formGroup]="verifyResetCode" (ngSubmit)="resetCode()">
+              <!-- Email -->
+              <input
+                formControlName="resetCode"
+                type="text"
+                class="form-control my-3"
+                placeholder="Type your Code.."
+                [ngClass]="{
+                  'is-invalid': verifyResetCode.get('resetCode')?.errors && verifyResetCode.get('resetCode')?.touched,
+                  'is-valid': verifyResetCode.get('resetCode')?.valid && verifyResetCode.get('resetCode')?.touched
+                }"
+              />
+              @if (verifyResetCode.get('resetCode')?.errors && verifyResetCode.get('resetCode')?.touched) {
+                <div class="alert alert-danger">
+                  <ul class="m-0">
+                    @if (verifyResetCode.get('resetCode')?.getError('required')) {
+                      <li>Email is required.</li>
+                    }
+                    @if (verifyResetCode.get('resetCode')?.getError('resetCode')) {
+                      <li>Please enter a valid email address.</li>
+                    }
+                  </ul>
+                </div>
+              }
+          
+                <div class="text-danger my-3">
+                    {{errorMessage}}
+                </div>
+              <!-- Submit Button -->
+               <div class="d-flex justify-content-end">
+                <app-button>
+                    @if(!loading) {
+                        Verify
+                    }
+                    @else {
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                    }
+                </app-button>
+                
+               </div>
+            </form>    
+        </div>
+    }@else if (steps == 3) {
+        <div class="container w-50 my-5">
+            <h2>Reset Password  :</h2>
+            <form [formGroup]="resetPassword" (ngSubmit)="newPassword()">
+              <!-- Email -->
+              <input
+                formControlName="email"
+                type="email"
+                class="form-control my-3"
+                placeholder="Type your email.."
+                [ngClass]="{
+                  'is-invalid': resetPassword.get('email')?.errors && resetPassword.get('email')?.touched,
+                  'is-valid': resetPassword.get('email')?.valid && resetPassword.get('email')?.touched
+                }"
+              />
+              @if (resetPassword.get('email')?.errors && resetPassword.get('email')?.touched) {
+                <div class="alert alert-danger">
+                  <ul class="m-0">
+                    @if (verifyResetCode.get('email')?.getError('required')) {
+                      <li>Email is required.</li>
+                    }
+                    @if (verifyResetCode.get('email')?.getError('email')) {
+                      <li>Please enter a valid email address.</li>
+                    }
+                  </ul>
+                </div>
+              }
+              
+                 <!-- Password -->
+         <div class="position-relative">
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              formControlName="newPassword"
+              class="form-control my-3"
+              placeholder="Type your password.."
+            />
+            <i
+                class="toggle-password fas"
+                [ngClass]="showPassword ? 'fa-eye' : 'fa-eye-slash'"
+                (click)="toggleShowPassword('password')"
+            ></i>
+          </div>
+          @if (resetPassword.get('newPassword')?.errors && resetPassword.get('newPassword')?.touched) {
+            <div class="alert alert-danger">
+              <ul class="m-0">
+                @if (resetPassword.get('newPassword')?.getError('required')) {
+                  <li>Password is required.</li>
+                }
+                @if (resetPassword.get('newPassword')?.getError('pattern')) {
+                  <li>Password must meet the required pattern.</li>
+                }
+              </ul>
+            </div>
+          }
+      
+                <div class="text-danger my-3">
+                    {{errorMessage}}
+                </div>
+              <!-- Submit Button -->
+               <div class="d-flex justify-content-end">
+                <app-button>
+                    @if(!loading) {
+                        Reset Password 
+                    }
+                    @else {
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                    }
+                </app-button>
+                
+               </div>
+            </form>    
+        </div>
+    }
+
+    
+  
+
+    
+      
+</section>

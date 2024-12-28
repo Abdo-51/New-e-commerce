@@ -13,6 +13,7 @@ import { BrandsComponent } from './components/brands/brands.component';
 import { CartComponent } from './components/cart/cart.component';
 import { authGuard } from './core/guards/auth.guard';
 import { unAuthGuard } from './core/guards/un-auth.guard';
+import { ForgetPaswwordComponent } from './components/forget-password/forget-paswword.component';
 
 export const routes: Routes = [
     {
@@ -22,6 +23,7 @@ export const routes: Routes = [
             {path: '', redirectTo:'signin', pathMatch:'full' },
             {path: 'signin', component: SigninComponent , title: 'signin'},
             {path: 'signup', component: SignupComponent  , title: 'signup'},
+            {path: 'forgetpassword', component: ForgetPaswwordComponent  , title: 'forgetpassword'},
         ],
     },
     {
