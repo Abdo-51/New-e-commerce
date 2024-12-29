@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-cart',
@@ -8,5 +8,21 @@ import { Component } from '@angular/core';
   styleUrl: './cart.component.scss'
 })
 export class CartComponent {
+  counter = signal(10);
+  actionList: string[] = [];
+
+
+  increment(){
+    // this.counter++;.
+    this.counter.set(this.counter() + 1)
+    this.actionList.push('increment');
+  }
+
+  decrease(){
+    // this.counter--;
+    this.counter.set(this.counter() - 1)
+
+    this.actionList.push('decrease');
+  }
 
 }

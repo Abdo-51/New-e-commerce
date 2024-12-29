@@ -98,6 +98,7 @@
                 type="email"
                 class="form-control my-3"
                 placeholder="Type your email.."
+                readonly
                 [ngClass]="{
                   'is-invalid': resetPassword.get('email')?.errors && resetPassword.get('email')?.touched,
                   'is-valid': resetPassword.get('email')?.valid && resetPassword.get('email')?.touched

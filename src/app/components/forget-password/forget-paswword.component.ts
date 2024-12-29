@@ -44,6 +44,9 @@ export class ForgetPaswwordComponent {
   forgetPassword(){
     this.loading = true;
     if (this.forgetpasswordForm.valid) {
+     let email = this.forgetpasswordForm.get('email')?.value
+     this.resetPassword.get('email')?.patchValue(email)
+
       this._AuthService.forgetPassword(this.forgetpasswordForm.value).subscribe({
       next:(res)=>{
         this.steps = 2;
