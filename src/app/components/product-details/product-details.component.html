@@ -1,1 +1,17 @@
-<p>product-details works!</p>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-3">
+            <img [src]="product.imageCover" class="w-100">
+        </div>
+        <div class="col-md-9 mt-5 pt-5">
+            <h1>{{product.title}}</h1>
+            <p>{{product.description}}</p>
+            <h4>{{product.category.name}}</h4>
+            <div class="d-flex justify-content-between my-4"> 
+                <span class="fw-bold">{{product.price}} EGP</span>
+                <span><i class="fa-solid fa-star rating-color"></i> {{product.ratingsAverage}}  </span>
+            </div>
+            <button class="btn bg-main text-white w-100 my-2">Add To Cart</button>
+        </div>
+    </div>
+</div>

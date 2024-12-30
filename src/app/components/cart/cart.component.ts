@@ -8,7 +8,7 @@ import { Component, signal } from '@angular/core';
   styleUrl: './cart.component.scss'
 })
 export class CartComponent {
-  counter = signal(10);
+  counter = signal(0);
   actionList: string[] = [];
 
 
