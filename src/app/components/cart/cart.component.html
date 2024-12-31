@@ -1,15 +1,41 @@
-<div class="container my-5">
-    <div class="text-center mb-5">
-        <h1>Counter : {{counter()}}</h1>
-    </div>
-    <div class="d-flex w-50 mx-50 mx-auto justify-content-between">
-        <button (click)="increment()" class="btn btn-primary">Increment</button>
-        <button (click)="decrease()" class="btn btn-danger">Decrease</button>
-    </div>
-    <h2> Action List</h2>
-    <ul class="action-list">
-        @for (item of actionList; track $index) {
-            <li>{{item}}</li>
-        }
-    </ul>
-</div>
+@if (isloading) {
+ @if (cart.numOfCartItems != 0) { 
+    <div class="container my-5 bg-main-light p-4 rounded-4">
+        <h1 class="">Shop Cart :</h1>
+        <p class="text-main">Total Cart Price : {{cart.data.totalCartPrice}} EGP </p>
+    
+       @for (product of cart.data.products; track $index) {
+        <div class="row my-2 border-bottom py-2">
+            <div class="col-md-1">
+                <img class="w-100" [src]="product.product.imageCover">
+            </div>
+            <div class="col-md-11 d-flex justify-content-between">
+                <div>
+                    <h4>{{product.product.title}}</h4>
+                    <p class="text-main">Price : {{product.price}}</p>
+                    <button (click)="deleteItem(product.product._id)" class="btn text-main"> <i class="fa-solid fa-trash"></i> Remove</button>
+                </div>
+                <div>
+                    <button (click)="updateQTY(product.product._id ,product.count+1)" class="btn main-border">+</button>
+                    <span class="mx-2">{{product.count}}</span>
+                    <button [disabled]="product.count ==1 " (click)="updateQTY(product.product._id ,product.count-1)" class="btn main-border">-</button>
+                </div>
+            </div>
+    
+        </div>
+       }
+       <button [routerLink]="['/address' , cart.cartId]" routerLinkActive="router-link-active"  class="btn bg-main text-white">Place Order</button>
+    </div> 
+ }@else {
+    <h2 class="text-main my-5 text-center"> 
+        Cart is Empty
+    </h2>
+}
+
+}@else {
+    <h2 class="text-main my-5 text-center"> 
+        <i class="fa-solid fa-spinner fa-spin"></i>
+    </h2>
+}
+
+ 

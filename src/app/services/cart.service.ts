@@ -46,7 +46,7 @@ export class CartService {
 }
 
 getLoggedUserCart = () : Observable<any> =>{
-  return this._HttpClient.get(`${baseUrl}api/v1/cart/`, {
+  return this._HttpClient.get(`${baseUrl}api/v1/cart`, {
    headers: {
     ...this.headers
    } 

@@ -14,6 +14,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { authGuard } from './core/guards/auth.guard';
 import { unAuthGuard } from './core/guards/un-auth.guard';
 import { ForgetPaswwordComponent } from './components/forget-password/forget-paswword.component';
+import { AddressComponent } from './components/address/address.component';
 
 export const routes: Routes = [
     {
@@ -37,6 +38,8 @@ export const routes: Routes = [
             {path: 'categories', component: CategoriesComponent , title: 'Categories'},
             {path: 'brands', component: BrandsComponent , title: 'Brands'},
             {path: 'cart', component: CartComponent , title: 'Cart'},
+            {path: 'address/:id', component: AddressComponent , title: 'Address'},
+
 
         ],
     },
