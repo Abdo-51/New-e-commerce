@@ -1,9 +1,9 @@
 <div class="container my-5">
     <h2>Order Now</h2>
-    <form action=""> 
-        <textarea class="form-control my-3" placeholder="Type your details"></textarea>
-        <input type="tel" class="form-control my-3" placeholder="Type your Phone ...">
-        <input type="text" class="form-control my-3" placeholder="Type your City ...">
+    <form [formGroup]="address" (ngSubmit)="Payment()"> 
+        <textarea formControlName="details" class="form-control my-3" placeholder="Type your details"></textarea>
+        <input formControlName="phone" type="tel" class="form-control my-3" placeholder="Type your Phone ...">
+        <input formControlName="city" type="text" class="form-control my-3" placeholder="Type your City ...">
         <button class="bg-main btn text-white my-2">Pay</button>
     </form>
 </div>
