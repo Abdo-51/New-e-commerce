@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { CartService } from '../../services/cart.service';
-import { Cart } from '../../interfaces/cart';
+import { Cart } from '../../core/interfaces/cart';
 import { ToastrService } from 'ngx-toastr';
 import { RouterLink } from '@angular/router';
 

@@ -8,12 +8,14 @@
         <div class="product p-2">
          <div routerLink="/product-details/{{product._id}}">
           <img [src]="product.imageCover" loading="lazy" class="w-100">
-          <h6 class="text-main">{{product.category.name}}</h6>
+          <h6 class="text-main">{{product.category.name | uppercase}}</h6>
           <h5 class="fw-bold">{{product.title.split(' ').slice(0,2).join(' ')}} ...</h5>
           <div class="d-flex justify-content-between">
-              <span>{{product.price}} EGP</span>
+              <span>{{product.price | currency : "EGP"}} </span>
               <span><i class="fa-solid fa-star rating-color"></i> {{product.ratingsAverage}}  </span>
           </div>
+          <p>{{product.createdAt | date : "short"}}</p>
+          <P class="text-danger fw-bold my-3">{{product.quantity | soldOut}}</P>
          </div>
           <button (click)="addToCart(product._id)" class="btn bg-main text-white w-100 my-2">
             Add To Cart
@@ -23,3 +25,7 @@
       }
     </div>
   </div> 
+
+
+
+  

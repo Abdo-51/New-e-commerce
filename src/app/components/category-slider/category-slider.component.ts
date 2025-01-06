@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { CategoriesService } from '../../services/categories.service';
-import { Category } from '../../interfaces/product';
+import { Category } from '../../core/interfaces/product';
 
 @Component({
   selector: 'app-category-slider',
